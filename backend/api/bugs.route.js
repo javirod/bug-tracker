@@ -5,6 +5,8 @@ import IssuesCtrl from "./issues.controller.js"
 const router = express.Router()
 
 router.route("/").get(BugsCtrl.apiGetBugs)
+router.route("/id/:id").get(BugsCtrl.apiGetBugById)
+router.route("/cuisines").get(BugsCtrl.apiGetBugCuisines)
 
 router
     .route("/issue")

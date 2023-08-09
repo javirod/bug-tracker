@@ -18,7 +18,7 @@ export default class IssuesDAO {
     static async addIssue(restaurantId, user, review, date) {
         try {
             const issuesDoc = { name: user.name,
-                user_id: user_id,
+                user_id: user._id,
                 date: date,
                 text: review,
                 restaurant_id: new ObjectId(restaurantId), }

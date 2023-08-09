@@ -31,4 +31,30 @@ export default class BugsController {
         }
         res.json(response)
     }
+
+    static async apiGetBugById(req, res, next) {
+        try {
+            let id = req.params.id || {}
+            let restaurant = await BugsDAO.getBugById(id)
+            if (!restaurant) {
+                res.status(404).json({ error: "Not found" })
+                return
+            }
+            res.json(restaurant)
+        } catch (e) {
+            console.log('api, ' + e)
+            res.status(500).json({ error: e })
+        }
+    }
+
+    static async apiGetBugCuisines(req, res, next) {
+        try {
+            let cuisines = await BugsDAO.getCuisines()
+
+            res.json(cuisines)
+        } catch (e) {
+            console.log('api, ' + e)
+            res.status(500).json({ error: e })
+        }
+    }
 }
