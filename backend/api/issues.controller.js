@@ -60,7 +60,7 @@ export default class IssuesController {
             const reviewId = req.query.id
             const userId = req.body.user_id
             console.log(reviewId)
-            const issueResponse = await ReviewDAO.deleteIssue(
+            const issueResponse = await IssuesDAO.deleteIssue(
                 reviewId,
                 userId,
             )

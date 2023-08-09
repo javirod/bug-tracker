@@ -18,7 +18,7 @@ export default class IssuesDAO {
     static async addIssue(restaurantId, user, review, date) {
         try {
             const issuesDoc = { name: user.name,
-                user_id: user._id,
+                user_id: user_id,
                 date: date,
                 text: review,
                 restaurant_id: new ObjectId(restaurantId), }
@@ -33,7 +33,7 @@ export default class IssuesDAO {
     static async updateIssue(reviewId, userId, text, date) {
         try {
             const updateResponse = await issues.updateOne(
-                { user_id: userId, _id: ObjectId(reviewId) },
+                { user_id: userId, _id: new ObjectId(reviewId) },
                 { $set: { text: text, date: date } },
             )
 
@@ -47,7 +47,7 @@ export default class IssuesDAO {
     static async deleteIssue(reviewId, userId) {
         try {
             const deleteResponse = await issues.deleteOne({
-                _id: ObjectId(reviewId),
+                _id: new ObjectId(reviewId),
                 user_id: userId,
             })
 
