@@ -8,8 +8,8 @@ router.route("/").get(BugsCtrl.apiGetBugs)
 
 router
     .route("/issue")
-    .post(IssueCtrl.apiPostIssue)
-    .put(IssueCtrl.apiUpdateIssue)
-    .delete(IssueCtrl.apiDeleteIssue)
+    .post(IssuesCtrl.apiPostIssue)
+    .put(IssuesCtrl.apiUpdateIssue)
+    .delete(IssuesCtrl.apiDeleteIssue)
 
 export default router
